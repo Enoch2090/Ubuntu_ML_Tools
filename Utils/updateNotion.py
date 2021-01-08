@@ -11,15 +11,16 @@ client = NotionClient(
 
 while True:
     try:
-        page = client.get_block(pagelink)
+        page = client.get_block(pageLink)
     except:
         client = NotionClient(
             token_v2=token)
         continue
-    content = ""
+    content = []
     with open(logFile, "r") as f:
-        content = f.read()
+        content = f.readlines()
     print("System time %s, upload log %s to Notion. Sleep for 900s." %
           (time.asctime(time.localtime(time.time())), logFile))
-    page.children[0].title = content
+    page.children[0].title = "Updated at %s \n\n %s" % (
+        time.asctime(time.localtime(time.time())), "".join(content[-50::]))
     time.sleep(900)
