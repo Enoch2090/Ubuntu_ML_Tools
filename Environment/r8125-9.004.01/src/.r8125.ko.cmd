@@ -1,1 +1,0 @@
-cmd_/home/sjtu/r8125-9.004.01/src/r8125.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/sjtu/r8125-9.004.01/src/r8125.ko /home/sjtu/r8125-9.004.01/src/r8125.o /home/sjtu/r8125-9.004.01/src/r8125.mod.o;  true
